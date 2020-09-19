@@ -17,7 +17,7 @@ jobs:
       - ./gen --destination generated --values resources --bucket ${AWS_S3_BUCKET}
       - echo "Starting upload to ${AWS_S3_BUCKET}..."
       # Upload values to S3
-      - aws s3 sync generated/resources s3://$${AWS_S3_BUCKET}/values
+      - aws s3 sync generated/resources s3://${AWS_S3_BUCKET}/values
       # Deploy spinnaker resources
       #- ls -1 /$(destination)/applications | xargs -I{} spin app save --file /$(destination)/applications/{}
       #- ls -1 /$(destination)/pipelines | xargs -I{} spin pi save --file /$(destination)/pipelines/{}
