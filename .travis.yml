@@ -13,8 +13,7 @@ jobs:
       script:
       #- mkdir ~/.spin && echo $${ENCODED_SPIN_CONFIG} | base64 -d > ~/.spin/config
       - curl -sL https://raw.githubusercontent.com/nagypeterjob-edu/resource-generator/master/get_gen.sh | sh
-      - which gen
-      - gen --destination generated --values resources
+      - ./gen --destination generated --values resources
       # Upload values to S3
       - aws s3 sync generated/resources s3://$${AWS_S3_BUCKET}/values
       # Deploy spinnaker resources
