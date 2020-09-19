@@ -11,7 +11,7 @@ jobs:
     - stage: sync
       if: tag =~ ^v(\d+.?)+.*$
       script:
-      - mkdir ~/.spin && echo $${ENCODED_SPIN_CONFIG} | base64 -d > ~/.spin/config
+      #- mkdir ~/.spin && echo $${ENCODED_SPIN_CONFIG} | base64 -d > ~/.spin/config
       - curl -sL https://raw.githubusercontent.com/nagypeterjob-edu/resource-generator/master/get_gen.sh | sh
       - which gen
       - gen --destination generated --values resources
